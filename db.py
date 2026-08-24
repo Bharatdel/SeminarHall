@@ -63,6 +63,22 @@ def add_booking(faculty_name, department, phone, purpose, booking_date, start_ho
     Attempts to add booking ranges. Checks for overlaps in a transaction-safe manner.
     Can accept a single range via start_hour and end_hour, or a list of ranges via ranges.
     """
+    # ----- New validation: disallow past dates/times -----
+    now = datetime.now()
+    today_str = now.strftime('%Y-%m-%d')
+    current_hour = now.hour
+    if booking_date < today_str:
+        return False, "Cannot book a date in the past."
+    if booking_date == today_str:
+        # If any requested start hour is <= current hour, reject (slot already started or passed)
+        if ranges:
+            for r in ranges:
+                if r['start_hour'] <= current_hour:
+                    return False, "Cannot book slots that have already started or passed for today."
+        else:
+            if start_hour is not None and start_hour <= current_hour:
+                return False, "Cannot book a slot that has already started or passed for today."
+    
     if ranges is None:
         if start_hour is None or end_hour is None:
             return False, "Either a start/end hour or a list of ranges must be provided."
