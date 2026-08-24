@@ -1,0 +1,21 @@
+# Python virtual environment
+venv/
+.venv/
+env/
+
+# Python caching & compiled bytecode
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.pytest_cache/
+
+# Local SQLite databases (holds local booking data)
+*.db
+*.db-journal
+*.db-wal
+
+# IDE / Editor configurations
+.vscode/
+.idea/
+.DS_Store
