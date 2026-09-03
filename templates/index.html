@@ -128,17 +128,17 @@
         <!-- Backdrop -->
         <div class="absolute inset-0 bg-slate-900/60 backdrop-blur-sm" onclick="closeBookingModal()"></div>
         <!-- Dialog -->
-        <div class="bg-white rounded-xl shadow-2xl border border-slate-200 max-w-lg w-full m-4 overflow-hidden relative z-10 animate-[fadeIn_0.2s_ease-out]">
-            <div class="bg-indigo-600 text-white px-6 py-4 flex items-center justify-between">
+        <div class="bg-white rounded-xl shadow-2xl border border-slate-200 max-w-lg w-full max-h-[95vh] flex flex-col m-4 overflow-hidden relative z-10 animate-[fadeIn_0.2s_ease-out]">
+            <div class="bg-indigo-600 text-white px-6 py-4 flex items-center justify-between shrink-0">
                 <h3 class="text-lg font-bold">Request Seminar Hall Booking</h3>
                 <button class="text-white/80 hover:text-white transition-colors" onclick="closeBookingModal()">
                     <i class="fa-solid fa-xmark text-xl"></i>
                 </button>
             </div>
             
-            <form id="booking-form" onsubmit="handleBookingSubmit(event)" class="p-6 space-y-4">
+            <form id="booking-form" onsubmit="handleBookingSubmit(event)" class="p-6 space-y-4 overflow-y-auto">
                 <!-- Selected Details summary banner -->
-                <div class="bg-indigo-50 border border-indigo-100 rounded-lg p-3.5 flex flex-col gap-1 text-indigo-900">
+                <div class="bg-indigo-50 border border-indigo-100 rounded-lg p-3.5 flex flex-col gap-1 text-indigo-900 shrink-0">
                     <div class="text-sm font-semibold">
                         <i class="fa-solid fa-calendar mr-2 text-indigo-500"></i>Date: <span id="modal-summary-date" class="font-normal text-slate-700"></span>
                     </div>
